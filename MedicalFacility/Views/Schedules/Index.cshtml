@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MedicalFacility.Models.Schedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Doctor.Doctor_Name
+        </th>
+        <th>
+            Schedule day
+        </th>
+        <th>
+            Schedule Time
+        </th>
+        <th>
+            Schedule date
+        </th>
+        <th>
+           Schedule Location
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var schedule in Model) {
+    <tr>
+        <td>
+            @schedule.Doctor.Doctor_Name
+        </td>
+        <td>
+            @schedule.Schedule_day
+        </td>
+        <td>
+            @schedule.Schedule_Time
+        </td>
+        <td>
+            @schedule.Schedule_date
+        </td>
+        <td>
+            @schedule.Schedule_Location
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=schedule.Schedule_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=schedule.Schedule_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=schedule.Schedule_ID })
+        </td>
+    </tr>
+}
+
+</table>
